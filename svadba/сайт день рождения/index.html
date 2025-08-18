@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Марианна</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+
+  <div class="hearts-background">
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <main class="container">
+    
+    <!-- Главный экран -->
+    <header class="hero-section">
+      <div class="hero-left">
+        <div class="hero-names">
+          <div class="name-line name-groom">Марианна</div>
+        </div>
+      </div>
+      
+      <div class="hero-right">
+        <div class="hero-photo">
+          <img src="mari.jpg" alt="Марианна">
+        </div>
+        <div class="hero-date-container">
+          <div class="hero-date">4 сентября 2025</div>
+          <div class="hero-subtitle">ЖДЕМ ВАС</div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Таймер обратного отсчета -->
+    <div class="countdown-clean fade-in-up" id="countdown">
+      <div class="unit">
+        <div id="days">00</div>
+        <label>дней</label>
+      </div>
+      <div class="unit">
+        <div id="hours">00</div>
+        <label>часов</label>
+      </div>
+      <div class="unit">
+        <div id="minutes">00</div>
+        <label>минут</label>
+      </div>
+      <div class="unit">
+        <div id="seconds">00</div>
+        <label>секунд</label>
+      </div>
+    </div>
+    
+    <!-- Детали мероприятия -->
+    <section class="custom-text fade-in-up">
+      <h2>Приглашение</h2>
+      <p>
+        Мы рады Вам сообщить, что 04.09.25 состоится важное событие для нашей семьи: крестины и день рождение нашей дочери Марианны!<br>
+Приглашаем Вас разделить с нами радость этого незабываемого дня.
+      </p>
+    </section>
+
+    <!-- Информация о событии -->
+    <section class="info fade-in-up">
+      <p><strong>Дата:</strong> 4 сентября 2025</p>
+      <p><strong>Время:</strong> 15:00</p>
+      <p><strong>Адрес:</strong> <br>Толстого 2 в (Сурб Арутюн)<br></p>
+      <p><strong><br>Время:</strong> 17:00</p>
+      <p><strong>Адрес:</strong> <br>Шашлычный мир<br> (Мичуринская 203/1)</p>
+    </section>
+
+    <section class="timeline fade-in-up">
+  <h2 class="timeline-title">Тайминг</h2>
+
+  <div class="timeline-item">
+    <span class="time">15:00</span>
+    <span class="event"> Таинство крещения</span>
+  </div>
+
+  <div class="timeline-item">
+    <span class="time">17:00</span>
+    <span class="event"> Ресторан</span>
+  </div>
+
+</section>
+    
+    <!-- Форма подтверждения -->
+    <form id="rsvp-form" class="fade-in-up">
+      <h2>Подтвердите присутствие</h2>
+      <label>Ваше имя и фамилия:</label>
+      <input type="text" name="name" required>
+      
+      <label>Ожидать ли вас?</label>
+      <select name="attendance" required>
+        <option value="Да">Да</option>
+        <option value="Нет">Нет</option>
+        <option value="Возможно">Сообщу позже</option>
+      </select>
+      
+      <button type="submit">Отправить</button>
+      <p id="status-message"></p>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

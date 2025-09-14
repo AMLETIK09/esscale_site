@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Esscale — Инновационное консалтинговое агентство: аналитика, ML,
+      IT-разработка
+    </title>
+
+    <!-- Подключение иконки сайта -->
+    <link rel="icon" href="./images/favicon.ico" sizes="any" />
+    <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./images/favicon.png" />
+
+    <!-- Подключение основных стилей -->
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/headline.css" />
+
+    <!-- Подключение стилей секций-->
+    <link rel="stylesheet" href="./sections/about-us/about-us.css" />
+    <link rel="stylesheet" href="./sections/contact/contact.css" />
+    <link rel="stylesheet" href="./sections/interests/interests.css" />
+    <link rel="stylesheet" href="./sections/portfolio/portfolio.css" />
+    <link rel="stylesheet" href="./sections/services/services.css" />
+
+    <!-- Подключение стилей анимаций -->
+    <link rel="stylesheet" href="./css/animations.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <!-- Подключение секций HTML -->
+      <div include-html="./sections/about-us/about-us.html"></div>
+      <div include-html="./sections/contact/contact.html"></div>
+      <div include-html="./sections/interests/interests.html"></div>
+      <div include-html="./sections/portfolio/portfolio.html"></div>
+      <div include-html="./sections/services/services.html"></div>
+    </main>
+
+    <!-- Скрипт подключения секций HTML -->
+    <script src="./js/includeHTML.js"></script>
+    <script>
+      includeHTML();
+    </script>
+
+    <!-- Подключение библиотеки для частиц -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+
+    <!-- Скрипт инициализации частиц -->
+    <script src="./js/particles-init.js"></script>
+
+    <!-- Единый главный скрипт со всей логикой -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>

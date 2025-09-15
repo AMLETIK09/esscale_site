@@ -31,14 +31,26 @@
     <link rel="stylesheet" href="./css/animations.css" />
   </head>
   <body>
-    <header></header>
-    <main>
+    <header class="header"></header>
+    <main class="main">
       <!-- Подключение секций HTML -->
-      <div include-html="./sections/about-us/about-us.html"></div>
-      <div include-html="./sections/contact/contact.html"></div>
-      <div include-html="./sections/interests/interests.html"></div>
-      <div include-html="./sections/portfolio/portfolio.html"></div>
-      <div include-html="./sections/services/services.html"></div>
+      <div
+        class="about-us"
+        include-html="./sections/about-us/about-us.html"
+      ></div>
+      <div
+        class="interests"
+        include-html="./sections/interests/interests.html"
+      ></div>
+      <div
+        class="services"
+        include-html="./sections/services/services.html"
+      ></div>
+      <div
+        class="portfolio"
+        include-html="./sections/portfolio/portfolio.html"
+      ></div>
+      <div class="contact" include-html="./sections/contact/contact.html"></div>
     </main>
 
     <!-- Скрипт подключения секций HTML -->

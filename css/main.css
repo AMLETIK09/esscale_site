@@ -25,3 +25,8 @@ input {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+body {
+  font-family: var(--main-font, "Montserrat-VF"), "Montserrat", sans-serif;
+  font-variation-settings: "wght" var(--main-font-wght, 500);
+}

@@ -1,2 +1,315 @@
 /* sections/portfolio/portfolio.css */
 /* Стили для секции "Портфолио" */
+
+.portfolio {
+    padding: 80px 0;
+    background: transparent; /* Убираем фон, чтобы видеть частицы */
+}
+
+.portfolio .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.portfolio .section-title h2 {
+    font-size: clamp(2.5rem, 1.5rem + 2vw, 4rem);
+    font-variation-settings: "wght" var(--main-font-wght-accent, 700);
+    color: var(--font-accent-color, #fff);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.portfolio .section-title p {
+    font-size: clamp(1rem, 0.8rem + 0.4vw, 1.2rem);
+    color: var(--font-main-color, #ddd);
+    opacity: 0.8;
+}
+
+.portfolio__filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.portfolio__filter-btn {
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--font-main-color, #ddd);
+    border: 2px solid var(--card-border-color, rgba(255, 255, 255, 0.1));
+    border-radius: 25px;
+    font-size: 14px;
+    font-variation-settings: "wght" 500;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+}
+
+.portfolio__filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--font-highlight-color, #4de1cd), transparent);
+    transition: left 0.5s ease;
+    opacity: 0.1;
+}
+
+.portfolio__filter-btn:hover::before {
+    left: 100%;
+}
+
+.portfolio__filter-btn:hover {
+    border-color: var(--font-highlight-color, #4de1cd);
+    color: var(--font-highlight-color, #4de1cd);
+    transform: translateY(-2px);
+}
+
+.portfolio__filter-btn.active {
+    background: var(--font-highlight-color, #4de1cd);
+    color: var(--bg-color, #121116);
+    border-color: var(--font-highlight-color, #4de1cd);
+}
+
+.portfolio__list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Увеличиваем расстояние между карточками */
+}
+
+.portfolio__item {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Два равных контейнера */
+    background: var(--card-color, rgba(255, 255, 255, 0.08));
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border-color, rgba(255, 255, 255, 0.1));
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.3s ease, 
+                transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+    min-height: 350px; /* Фиксированная минимальная высота */
+}
+
+/* Для reverse карточек меняем порядок колонок */
+.portfolio__item--reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.portfolio__item:hover {
+    transform: translateY(-5px);
+    border-color: var(--font-highlight-color, #4de1cd);
+    box-shadow: 0 20px 40px rgba(77, 225, 205, 0.1);
+}
+
+.portfolio__item--reverse {
+    flex-direction: row-reverse;
+}
+
+.portfolio__item.hidden {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    max-height: 0;
+    margin-bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.portfolio__item-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    grid-column: 1; /* Первая колонка по умолчанию */
+}
+
+/* Для reverse карточек изображение во второй колонке */
+.portfolio__item--reverse .portfolio__item-img {
+    grid-column: 2;
+    order: 2;
+}
+
+.portfolio__item-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--font-highlight-color, #4de1cd), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.portfolio__item:hover .portfolio__item-img::before {
+    opacity: 0.1;
+}
+
+.portfolio__item-img img {
+    width: 100%;
+    height: 100%; /* Заполняем всю высоту контейнера */
+    object-fit: cover;
+    object-position: center; /* Центрируем изображение при обрезке */
+    transition: transform 0.3s ease;
+    display: block; /* Убираем возможные отступы inline элементов */
+    margin: 0; /* Убираем все отступы */
+    padding: 0; /* Убираем все внутренние отступы */
+}
+
+.portfolio__item:hover .portfolio__item-img img {
+    transform: scale(1.05);
+}
+
+.portfolio__item-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+    grid-column: 2; /* Вторая колонка по умолчанию */
+}
+
+.portfolio__item--reverse .portfolio__item-content {
+    grid-column: 1; /* Для reverse - первая колонка */
+    order: 1;
+    text-align: left;
+    padding: 40px;
+}
+
+.portfolio__item-title {
+    font-size: clamp(1.5rem, 1.2rem + 0.6vw, 2rem);
+    font-variation-settings: "wght" var(--main-font-wght-accent, 700);
+    color: var(--font-accent-color, #fff);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.portfolio__item-text {
+    font-size: clamp(0.9rem, 0.8rem + 0.2vw, 1.1rem);
+    color: var(--font-main-color, #ddd);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.portfolio__item-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--font-highlight-color, #4de1cd), #3ac9b3);
+    color: var(--bg-color, #121116);
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-variation-settings: "wght" 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio__item-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.portfolio__item-btn:hover::before {
+    left: 100%;
+}
+
+.portfolio__item-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(77, 225, 205, 0.3);
+}
+
+.portfolio__item-btn::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.portfolio__item-btn:hover::after {
+    transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+    .portfolio__item, 
+    .portfolio__item--reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .portfolio__item-img {
+        flex: none;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .portfolio__item-content {
+        padding: 0 20px;
+    }
+    
+    .portfolio__item--reverse .portfolio__item-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        padding: 60px 0;
+    }
+    
+    .portfolio__filters {
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+    
+    .portfolio__filter-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .portfolio__item {
+        padding: 30px 20px;
+        gap: 25px;
+    }
+    
+    .portfolio__item-img img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio__filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .portfolio__filter-btn {
+        min-width: 200px;
+        text-align: center;
+    }
+    
+    .portfolio__item {
+        padding: 25px 15px;
+    }
+    
+    .portfolio__item-img img {
+        height: 180px;
+    }
+}

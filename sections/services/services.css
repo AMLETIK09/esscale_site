@@ -1,2 +1,268 @@
 /* sections/services/services.css */
-/* Стили для секции "Услуги" */
+/* Стили для секции "Услуги и Прайс" */
+
+.services {
+  padding: 6rem 0;
+  background: transparent;
+}
+
+.services__header {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+
+.services__title {
+  font-size: clamp(3rem, 2rem + 4vw, 6rem);
+  font-variation-settings: "wght" var(--main-font-wght-accent, 700);
+  color: var(--font-main-color, #fff);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+}
+
+/* Карусель услуг */
+.services__carousel {
+  position: relative;
+  margin-bottom: 6rem;
+  perspective: 1000px;
+}
+
+.services__track {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: visible;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.services__track::-webkit-scrollbar {
+  display: none;
+}
+
+.service-card {
+  flex: 0 0 350px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  opacity: 0.4;
+  transform: scale(0.8) translateZ(-100px) rotateY(15deg);
+  filter: blur(2px);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(77, 225, 205, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Карточки слева от активной */
+.service-card.card-left-2 {
+  transform: scale(0.6) translateZ(-200px) rotateY(25deg);
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+.service-card.card-left-1 {
+  transform: scale(0.75) translateZ(-100px) rotateY(15deg);
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+/* Активная карточка в центре */
+.service-card--active {
+  opacity: 1;
+  transform: scale(1) translateZ(0) rotateY(0deg);
+  filter: blur(0px);
+  background: rgba(77, 225, 205, 0.1);
+  border-color: var(--font-highlight-color, #4de1cd);
+  z-index: 10;
+}
+
+.service-card--active:hover {
+  transform: scale(1.02) translateZ(0) rotateY(0deg) translateY(-8px);
+  border-color: rgba(77, 225, 205, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Карточки справа от активной */
+.service-card.card-right-1 {
+  transform: scale(0.75) translateZ(-100px) rotateY(-15deg);
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+.service-card.card-right-2 {
+  transform: scale(0.6) translateZ(-200px) rotateY(-25deg);
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+.service-card__content {
+  position: relative;
+  z-index: 2;
+}
+
+.service-card__title {
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+  font-variation-settings: "wght" var(--main-font-wght-accent, 600);
+  color: var(--font-main-color, #fff);
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.service-card__description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.service-card__button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--font-main-color, #fff);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-variation-settings: "wght" var(--main-font-wght, 500);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.service-card__button:hover {
+  background: var(--font-highlight-color, #4de1cd);
+  color: var(--bg-color, #121116);
+  border-color: var(--font-highlight-color, #4de1cd);
+  transform: translateX(4px);
+}
+
+.service-card__button svg {
+  transition: transform 0.3s ease;
+}
+
+.service-card__button:hover svg {
+  transform: translateX(4px);
+}
+
+/* Навигация карусели */
+.services__navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.services__nav-btn {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-main-color, #fff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.services__nav-btn:hover {
+  background: var(--font-highlight-color, #4de1cd);
+  color: var(--bg-color, #121116);
+  border-color: var(--font-highlight-color, #4de1cd);
+  transform: translateY(-2px);
+}
+
+/* Нижняя секция с прайс-листом */
+.services__bottom {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.services__bottom-title {
+  font-size: clamp(2.5rem, 1.5rem + 4vw, 4rem);
+  font-variation-settings: "wght" var(--main-font-wght-accent, 700);
+  color: var(--font-main-color, #fff);
+  margin: 0 0 2rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.services__pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--font-main-color, #fff);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-variation-settings: "wght" var(--main-font-wght, 500);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.services__pdf-btn:hover {
+  background: var(--font-highlight-color, #4de1cd);
+  color: var(--bg-color, #121116);
+  border-color: var(--font-highlight-color, #4de1cd);
+  transform: translateY(-2px);
+}
+
+.services__pdf-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.services__pdf-btn:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 0;
+  }
+  
+  .services__header {
+    text-align: center;
+  }
+  
+  .service-card {
+    flex: 0 0 280px;
+    padding: 1.5rem;
+  }
+  
+  .services__navigation {
+    gap: 0.5rem;
+  }
+  
+  .services__nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+}

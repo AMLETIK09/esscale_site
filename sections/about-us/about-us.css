@@ -1,2 +1,84 @@
 /* sections/about-us/about-us.css */
 /* Стили для секции "О нас" */
+
+.section_about-us {
+  padding-block-start: clamp(2.5rem, 1.7857rem + 1.4881vw, 3.125rem);
+  padding-block-end: 120px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
+  column-gap: clamp(5rem, -5.7143rem + 22.3214vw, 14.375rem);
+}
+
+.about-us_card {
+  display: grid;
+  justify-self: left;
+  grid-template-rows: clamp(12.5rem, 1.7857rem + 22.3214vw, 21.875rem) 1fr;
+  position: relative;
+}
+
+.section_about-us .about-us_card:nth-of-type(2n - 1)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc((100vw / 2) - clamp(2.5rem, 1.0714rem + 2.9762vw, 3.75rem));
+  width: 2px;
+  height: 100%;
+  background-color: var(--font-main-color, #ddd);
+}
+
+.about-us_card-text {
+  font-size: clamp(0.875rem, 0.7321rem + 0.2976vw, 1rem);
+  width: 90%;
+  align-self: center;
+  line-height: 130%;
+}
+
+.about-us_card-title {
+    align-self: center;
+}
+
+.about-us_text {
+  color: var(--font-accent-color, #fff);
+  font-variation-settings: "wght" var(--main-font-wght-accent, 700);
+  font-size: clamp(1.125rem, 0.6964rem + 0.8929vw, 1.5rem);
+  grid-row: 2;
+  grid-column: 1 / -1;
+  padding: clamp(3.125rem, -4.375rem + 15.625vw, 9.6875rem) 0;
+}
+
+@media (width <= 768px) {
+  .section_about-us {
+    grid-template-columns: 1fr;
+    row-gap: clamp(2.5rem, 1.3971rem + 4.902vw, 3.75rem);
+    padding-block-start: clamp(1.25rem, 0.1471rem + 4.902vw, 2.5rem);
+    padding-block-end: clamp(6.25rem, 5.1471rem + 4.902vw, 7.5rem);
+  }
+
+  .about-us_card {
+    grid-template-rows: repeat(2, auto);
+    gap: clamp(0.625rem, 0.0735rem + 2.451vw, 1.25rem);
+  }
+
+  .section_about-us .about-us_card:not(:last-of-type)::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--font-main-color, #ddd);
+  }
+
+  .section_about-us .about-us_card:not(:last-of-type) .about-us_card-text {
+    padding-block-end: clamp(2.5rem, 1.3971rem + 4.902vw, 3.75rem);
+  }
+
+  .about-us_card-text {
+    font-size: clamp(0.75rem, 0.6397rem + 0.4902vw, 0.875rem);
+  }
+
+  .about-us_text {
+    display: none;
+  }
+}

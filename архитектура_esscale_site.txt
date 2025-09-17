@@ -1,0 +1,41 @@
+├── sections/
+│   ├── about-us/
+│   │   ├── about-us.html
+│   │   ├── about-us.css
+│   │   └── about-us.js
+│   ├── interests/
+│   │   ├── interests.html
+│   │   ├── interests.css
+│   │   └── interests.js
+│   ├── services/
+│   │   ├── services.html
+│   │   ├── services.css
+│   │   └── services.js
+│   ├── portfolio/
+│   │   ├── portfolio.html
+│   │   ├── portfolio.css
+│   │   └── portfolio.js
+│   └── contact/
+│       ├── contact.html
+│       ├── contact.css
+│       └── contact.js
+├── css/
+│   ├── reset.css
+│   ├── headline.css
+│   └── main.css        # Общие стили для всего сайта, хедер, футер, типография
+├── fonts/
+│   └── ...
+├── images/
+│   └── ...
+├── js/
+│   ├── main.js         # Главный JS, который инициализирует все секции
+│   └── particles-init.js
+├── index.html          # Основной HTML файл
+├── esscale_pricelist.pdf
+├── manifest.json
+├── manualgit.txt
+├── OPTIMIZATION_REPORT.md
+├── README.md
+├── robots.txt
+├── sitemap.xml
+└── sw.js
